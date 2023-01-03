@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/taskCellCountainer"
+    android:layout_width="match_parent"
+    android:layout_height="90dp"
+    app:cardCornerRadius="5dp"
+    android:layout_margin="5dp">
+    
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/CompleteB"
+            android:layout_gravity="center"
+            android:scaleY="1.5"
+            android:scaleX="1.5"
+            android:contentDescription="Checkbox"
+            android:layout_margin="20dp"
+            android:src="@drawable/ic_uncheck"
+            android:layout_marginHorizontal="15dp"
+            android:backgroundTint="@android:color/transparent"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/Nazev"
+            android:text="Nazev Cinnosti"
+            style="@style/TextAppearance.AppCompat.Title"
+            android:layout_gravity="center"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:id="@+id/Cas"
+            style="@style/TextAppearance.AppCompat.Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginHorizontal="15dp"
+            android:text="09:41" />
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
