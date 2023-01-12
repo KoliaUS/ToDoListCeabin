@@ -11,6 +11,7 @@ interface TaskItemD {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertTaskList(taskItem: TaskList)
+
     @Update
     suspend fun updateTaskList(taskItem: TaskList)
 

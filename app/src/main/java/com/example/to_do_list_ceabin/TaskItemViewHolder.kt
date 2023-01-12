@@ -12,26 +12,25 @@ class TaskItemViewHolder(
     private val clickListener: TaskItemClickListener
 
 
-): RecyclerView.ViewHolder(binding.root) {
+) : RecyclerView.ViewHolder(binding.root) {
     private val timeFormat = DateTimeFormatter.ofPattern("HH:mm")
-    fun bindTaskItem(taskItem: TaskList)
-    {
+    fun bindTaskItem(taskItem: TaskList) {
         binding.Nazev.text = taskItem.nazev
-        if (taskItem.isCompleted()){
+        if (taskItem.isCompleted()) {
             binding.Nazev.paintFlags = Paint.STRIKE_THRU_TEXT_FLAG
             binding.Cas.paintFlags = Paint.STRIKE_THRU_TEXT_FLAG
         }
         binding.CompleteB.setImageResource(taskItem.imageResource())
         binding.CompleteB.setColorFilter(taskItem.imageColor(context))
 
-        binding.CompleteB.setOnClickListener{
+        binding.CompleteB.setOnClickListener {
             clickListener.completeTaskItem(taskItem)
         }
-        binding.taskCellCountainer.setOnClickListener{
+        binding.taskCellCountainer.setOnClickListener {
             clickListener.editTaskItem(taskItem)
         }
 
-        if(taskItem.cas() !=null)
+        if (taskItem.cas() != null)
             binding.Cas.text = timeFormat.format(taskItem.cas())
         else
             binding.Cas.text = ""
