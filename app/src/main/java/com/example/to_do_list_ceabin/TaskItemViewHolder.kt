@@ -22,6 +22,8 @@ class TaskItemViewHolder(
             binding.Cas.paintFlags = Paint.STRIKE_THRU_TEXT_FLAG
         }
         binding.CompleteB.setImageResource(taskItem.imageResource())
+        binding.CompleteB.setColorFilter(taskItem.imageColor(context))
+
         binding.CompleteB.setOnClickListener{
             clickListener.completeTaskItem(taskItem)
         }

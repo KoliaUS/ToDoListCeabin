@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity(), TaskItemClickListener {
 
         val mainActivity = this
         taskViewModel.taskList.observe(this) {
-            binding.TodoRecyclerView.apply() {
+            binding.TodoRecyclerView.apply {
                 layoutManager = LinearLayoutManager(applicationContext)
                 adapter = TaskItemAdapter(it, mainActivity)
             }
@@ -42,7 +42,7 @@ class MainActivity : AppCompatActivity(), TaskItemClickListener {
     }
 
     override fun editTaskItem(taskItem: TaskList) {
-        NewTask(taskItem).show(supportFragmentManager, "N")
+        NewTask(taskItem).show(supportFragmentManager, "NewTaskTag")
     }
 
     override fun completeTaskItem(taskItem: TaskList) {

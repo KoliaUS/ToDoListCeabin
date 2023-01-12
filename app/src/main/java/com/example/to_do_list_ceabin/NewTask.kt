@@ -50,11 +50,13 @@ class NewTask(var taskList: TaskList?) : BottomSheetDialogFragment() {
     private fun openTimePicker() {
         if(cas_h == null)
             cas_h = LocalTime.now()
-            val listener = TimePickerDialog.OnTimeSetListener{_,selectedHour, selectedMinute ->
+            val listener = TimePickerDialog.OnTimeSetListener{ _, selectedHour, selectedMinute ->
                 cas_h = LocalTime.of(selectedHour, selectedMinute)
                 UpdateTimeButtonText()
             }
-        TimePickerDialog(activity, listener, cas_h!!.hour,cas_h!!.minute, true).show()
+       val dialog_okno= TimePickerDialog(activity, listener, cas_h!!.hour,cas_h!!.minute, true)
+        dialog_okno.setTitle("Výběr času")
+        dialog_okno.show()
 
     }
 
@@ -84,7 +86,7 @@ class NewTask(var taskList: TaskList?) : BottomSheetDialogFragment() {
         {
             taskList!!.nazev = nazev
             taskList!!.popis = popis
-            taskList!!.htv_c_string = cas_string
+            taskList!!.cas_string = cas_string
             taskViewModel.updateTaskItem(taskList!!)
         }
         binding.Nazev.setText("")

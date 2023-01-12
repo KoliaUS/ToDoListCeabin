@@ -1,5 +1,6 @@
 package com.example.to_do_list_ceabin
 
+import android.annotation.SuppressLint
 import androidx.lifecycle.*
 import com.example.to_do_list_ceabin.TaskList
 import kotlinx.coroutines.launch
@@ -18,6 +19,7 @@ class TaskViewModel(private val repository: TaskItemRepository): ViewModel()
         repository.updateTaskItem(taskItem)
 
     }
+    @SuppressLint("SuspiciousIndentation")
     fun SetCompleted(taskItem: TaskList) = viewModelScope.launch {
     if(!taskItem.isCompleted())
         taskItem.htv_c_string = TaskList.dateFormatter.format(LocalDate.now())

@@ -1,5 +1,7 @@
 package com.example.to_do_list_ceabin
 
+import android.content.Context
+import androidx.core.content.ContextCompat
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
@@ -18,7 +20,7 @@ class TaskList (
     @PrimaryKey(autoGenerate = true) var id: Int = 0
         )
  {
-     fun htv_c(): LocalDate? = if(htv_c_string == null) null
+     private fun htv_c(): LocalDate? = if(htv_c_string == null) null
      else LocalDate.parse(htv_c_string, dateFormatter)
 
      fun cas(): LocalTime? = if(cas_string == null) null
@@ -26,6 +28,10 @@ class TaskList (
 
      fun isCompleted() = htv_c() != null
      fun imageResource(): Int = if(isCompleted()) ic_check_complete else ic_uncheck
+     fun imageColor(context: Context): Int = if(isCompleted()) purple(context) else black(context)
+
+     private fun purple(context: Context) = ContextCompat.getColor(context, R.color.purple_500)
+     private fun black(context: Context) = ContextCompat.getColor(context, R.color.black)
 
      companion object {
          val timeFormatter: DateTimeFormatter = DateTimeFormatter.ISO_TIME
